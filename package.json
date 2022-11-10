@@ -6,13 +6,13 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
-    "fontawesome": "^5.6.3"
+    "fontawesome": "^5.6.3",
+    "swiffy-slider": "^1.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
     "babel-loader": "^9.0.1",
-    "chokidar": "^3.5.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "mini-css-extract-plugin": "^2.6.1",
