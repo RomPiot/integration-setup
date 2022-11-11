@@ -1,24 +1,12 @@
 /*! ../../data/home_cards.json */
 
-/*! ../../templates/home.html */
-
-/*! ../node_modules/simple-nunjucks-loader/lib/cjs/runtime.js */
+/*! ../../templates/pages/home.html */
 
 /*! ../scss/front.scss */
-
-/*! ./WebpackPrecompiledLoader */
-
-/*! Browser bundle of nunjucks 3.2.3 (slim, only works with precompiled templates) */
-
-/*! nunjucks/browser/nunjucks-slim */
 
 /*!****************************!*\
   !*** ./assets/js/front.js ***!
   \****************************/
-
-/*!*****************************!*\
-  !*** ./templates/home.html ***!
-  \*****************************/
 
 /*!******************************!*\
   !*** ./data/home_cards.json ***!
@@ -28,14 +16,6 @@
   !*** ./assets/scss/front.scss ***!
   \********************************/
 
-/*!********************************************************!*\
-  !*** ./node_modules/nunjucks/browser/nunjucks-slim.js ***!
-  \********************************************************/
-
-/*!****************************************************************!*\
-  !*** ./node_modules/simple-nunjucks-loader/lib/cjs/runtime.js ***!
-  \****************************************************************/
-
-/*!*********************************************************************************!*\
-  !*** ./node_modules/simple-nunjucks-loader/lib/cjs/WebpackPrecompiledLoader.js ***!
-  \*********************************************************************************/
+/*!***********************************!*\
+  !*** ./templates/pages/home.html ***!
+  \***********************************/

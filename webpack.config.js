@@ -72,7 +72,18 @@ config = {
                 use: [
                     {
                         loader: 'simple-nunjucks-loader',
-                        options: {}
+                        options: {
+                            jinjaCompat: true,
+                            searchPaths: [
+                                '/templates/**/',
+                                '/templates/',
+                            ],
+                            assetsPaths: [
+                                '/public/build',
+                                '/assets/images',
+                            ],
+                            autoescape: true,
+                        }
                     }
                 ]
             }
