@@ -12,11 +12,12 @@
 
 <body class="home-page">
 
-<h1>Home</h1>
+<h1>{{ page.title }}</h1>
+<p>{{ page.description }}</p>
 
 <div class="container">
     <div class="row">
-        {% for card in cards %}
+        {% for card in page.cards %}
             <div class="card col-md-4">
                 {% set image_url = card.image.url ~ card.id %}
                 <img src="{{ image_url }}" class="card-img-top"
