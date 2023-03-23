@@ -5,6 +5,7 @@ import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import {createRequire} from "module";
 import * as dotenv from 'dotenv';
+import {autoloadTwigConfig} from "./twig_config/autoload_twig_config.js";
 
 dotenv.config();
 
@@ -42,9 +43,7 @@ for (let pageName of pageNames) {
     });
 }
 
-env.addGlobal('assets', function (pathUrl) {
-    return pathUrl;
-});
+autoloadTwigConfig(env);
 
 server.use(express.static('public'));
 
