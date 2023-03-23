@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{{ title }}{% endblock %}</title>
-{#    <script src="../../public/build/front.js"></script>#}
-{#    <link rel="stylesheet" href="../../public/build/front.css">#}
+    <script src="{{ assets('build/front.js"></script') }}"></script>
+    <link rel="stylesheet" href="{{ assets('build/front.css') }}">
 </head>
 
 <body id="{% block body_id %}{% endblock %}">

@@ -2,6 +2,7 @@ import path from "path";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const config = {
     mode: 'development',
@@ -81,4 +82,4 @@ const config = {
     watch: true,
 };
 
-module.exports = config;
+export default config;
