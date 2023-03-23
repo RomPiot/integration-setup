@@ -1,0 +1,48 @@
+{
+  "name": "integration-setup",
+  "version": "1.0.0",
+  "description": "Integration setup with Nunjucks and Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --ignore public",
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RomPiot/integration-setup"
+  },
+  "keywords": [
+    "express",
+    "nunjucks",
+    "boilerplate"
+  ],
+  "author": "Romain PIOT",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "fs": "^0.0.1-security",
+    "nunjucks": "^3.2.3",
+    "terser-webpack-plugin": "^5.3.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "connect-livereload": "^0.6.1",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.36.0",
+    "express": "^4.12.4",
+    "file-loader": "^6.2.0",
+    "livereload": "^0.9.3",
+    "mini-css-extract-plugin": "^2.7.5",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.22",
+    "sass-loader": "^13.2.1",
+    "style-loader": "^3.3.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  },
+  "type": "module"
+}

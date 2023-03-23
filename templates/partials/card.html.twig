@@ -1,0 +1,10 @@
+<div class="card col-md-4">
+    {% set image_url = card.image.url ~ card.id %}
+    <img src="{{ image_url }}" class="card-img-top"
+         alt="{{ card.image.alt }}" title="{{ card.image.title }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ card.title }}</h5>
+        <p class="card-text">{{ card.description }}</p>
+        <a href="#" class="btn btn-primary">GOOOO</a>
+    </div>
+</div>
