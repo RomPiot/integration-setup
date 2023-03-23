@@ -14,6 +14,10 @@ export function autoloadTwigConfig(env) {
                 return;
             }
 
+            files = files.filter((file) => {
+                return file.endsWith('.js');
+            });
+
             files.forEach((file) => {
                 const filename = file.replace('.js', '');
                 import('./' + directory + '/' + file).then((module) => {
