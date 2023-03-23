@@ -4,7 +4,8 @@
   "description": "Integration setup with Nunjucks and Express",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --ext js,scss,html,twig,json",
+    "start": "concurrently \"yarn run watch\" \"yarn run server\"",
+    "server": "nodemon --ext js,scss,css,html,twig,json",
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
@@ -20,6 +21,7 @@
   "author": "Romain PIOT",
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "concurrently": "^7.6.0",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
