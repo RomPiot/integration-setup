@@ -2,12 +2,13 @@ import path from "path";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const config = {
     mode: 'development',
     entry: {
-        front: './assets/js/front.js',
+        app: './assets/js/app.js',
     },
     output: {
         filename: '[name].js',
@@ -79,7 +80,6 @@ const config = {
             }
         ],
     },
-    watch: true,
 };
 
 export default config;

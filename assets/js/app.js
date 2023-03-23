@@ -1,4 +1,4 @@
-import '../scss/front.scss';
+import '../scss/app.scss';
 
 document.addEventListener('DOMContentLoaded', function () {
 });

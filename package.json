@@ -2,9 +2,9 @@
   "name": "integration-setup",
   "version": "1.0.0",
   "description": "Integration setup with Nunjucks and Express",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon --ignore public",
+    "start": "nodemon --ext js,scss,html,twig,json",
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
@@ -21,6 +21,7 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "nunjucks": "^3.2.3",
     "terser-webpack-plugin": "^5.3.7"
