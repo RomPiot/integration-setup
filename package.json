@@ -4,7 +4,7 @@
   "description": "Integration setup with Nunjucks and Express",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"yarn run watch\" \"yarn run server\"",
+    "start": "concurrently \"npm run watch\" \"npm run server\"",
     "server": "nodemon --ext js,scss,css,html,twig,json",
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
