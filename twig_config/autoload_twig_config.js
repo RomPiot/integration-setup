@@ -10,7 +10,7 @@ export function autoloadTwigConfig(env) {
 
         fs.readdir(directoryPath, (err, files) => {
             if (err) {
-                console.error('Erreur lors de la lecture du dossier', err);
+                console.error('Error on reading the folder', err);
                 return;
             }
 

@@ -3,13 +3,13 @@
 {% block body_id %}page-home{% endblock %}
 
 {% block content %}
+<main class="container">
     <h1>{{ title }}</h1>
     <p>{{ description }}</p>
-    <div class="container">
-        <div class="row">
-            {% for card in cards %}
-                {% include 'partials/card.html.twig' %}
-            {% endfor %}
-        </div>
+    <div class="row">
+        {% for card in cards %}
+            {% include 'partials/card.html.twig' %}
+        {% endfor %}
     </div>
-{% endblock %}
+    {% endblock %}
+</main>
