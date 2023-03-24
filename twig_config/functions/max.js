@@ -1,5 +1,7 @@
-export function max(env) {
-    env.addGlobal('max', function (...args) {
+const functionName = import.meta.url.split('/').pop().replace('.js', '');
+
+export default function (env) {
+    env.addGlobal(functionName, function (...args) {
             if (args.length > 1) {
                 return Math.max(...args);
             }

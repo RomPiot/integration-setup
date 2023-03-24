@@ -19,9 +19,8 @@ export function autoloadTwigConfig(env) {
             });
 
             files.forEach((file) => {
-                const filename = file.replace('.js', '');
                 import('./' + directory + '/' + file).then((module) => {
-                    module[filename](env);
+                    module.default(env);
                 })
             });
         });

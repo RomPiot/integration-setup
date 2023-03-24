@@ -8,8 +8,8 @@
     <p>{{ description }}</p>
 
     <div class="test">
-        {{ source('partials/card.html.twig') }}
-{#        {{ dump(source('partials/card.html.twig')) }}#}
+        {% set items = [{ 'fruit' : 'apple'}, {'fruit' : 'orange' }] %}
+        {{ dump(items | column('fruit')) }}
     </div>
     <div class="row">
 {#        {{ dump(random(['apple', 'orange', 'citrus'])) }}#}

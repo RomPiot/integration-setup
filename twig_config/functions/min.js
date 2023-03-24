@@ -1,5 +1,7 @@
-export function min(env) {
-    env.addGlobal('min', function (...args) {
+const functionName = import.meta.url.split('/').pop().replace('.js', '');
+
+export default function (env) {
+    env.addGlobal(functionName, function (...args) {
             if (args.length > 1) {
                 return Math.min(...args);
             }

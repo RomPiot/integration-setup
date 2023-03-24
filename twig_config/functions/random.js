@@ -1,5 +1,7 @@
-export function random(env) {
-    env.addGlobal('random', function (...args) {
+const functionName = import.meta.url.split('/').pop().replace('.js', '');
+
+export default function (env) {
+    env.addGlobal(functionName, function (...args) {
             if (arguments.length === 1) {
                 const arg = arguments[0];
                 if (Array.isArray(arg)) {

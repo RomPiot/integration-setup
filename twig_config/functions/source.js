@@ -1,8 +1,10 @@
 import fs from "fs";
 import nunjucks from 'nunjucks';
 
-export function source(env) {
-    env.addGlobal('source', function source(filePath) {
+const functionName = import.meta.url.split('/').pop().replace('.js', '');
+
+export default function (env) {
+    env.addGlobal(functionName, function source(filePath) {
             const partialPath = "templates/" + filePath;
             if (!fs.existsSync(partialPath)) {
                 console.error(`The file ${partialPath} does not exist`);

@@ -1,8 +1,10 @@
 import {dump as dumper} from 'dumper.js';
 import nunjucks from "nunjucks";
 
-export function dump(env) {
-    env.addGlobal('dump', function (element) {
+const functionName = import.meta.url.split('/').pop().replace('.js', '');
+
+export default function (env) {
+    env.addGlobal(functionName, function (element) {
         dumper(element);
 
         element = JSON.stringify(element, null, 4);
