@@ -1,5 +1,5 @@
 export function assets(env) {
-    env.addGlobal('assets', function (pathUrl) {
-        return pathUrl;
+    env.addGlobal('assets', function (filePath) {
+        return filePath;
     });
 }

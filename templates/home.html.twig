@@ -6,7 +6,17 @@
 <main class="container">
     <h1>{{ title }}</h1>
     <p>{{ description }}</p>
+
+    <div class="test">
+        {{ source('partials/card.html.twig') }}
+{#        {{ dump(source('partials/card.html.twig')) }}#}
+    </div>
     <div class="row">
+{#        {{ dump(random(['apple', 'orange', 'citrus'])) }}#}
+        {{ dump(random('ABC')) }}
+{#        {{ dump(random()) }}                       #}
+{#        {{ dump(random(5)) }}     #}
+{#        {{ dump(random(50, 53)) }}#}
         {% for card in cards %}
             {% include 'partials/card.html.twig' %}
         {% endfor %}
