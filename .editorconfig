@@ -1,0 +1,16 @@
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+indent_style = space
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_size = 4
+
+# [*.{py,php,js,css,scss,html,htm,xml,json}]
+
+
+[Makefile]
+indent_style = tab
