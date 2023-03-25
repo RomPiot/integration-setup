@@ -4,7 +4,7 @@ import nunjucks from "nunjucks";
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 
 export default function (env) {
-    env.addGlobal(functionName, function (element) {
+    env.addGlobal(functionName, (element) => {
         dumper(element);
 
         element = JSON.stringify(element, null, 4);

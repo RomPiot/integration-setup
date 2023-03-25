@@ -1,9 +1,9 @@
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 
 export default function (env) {
-    env.addGlobal(functionName, function (...args) {
-            if (arguments.length === 1) {
-                const arg = arguments[0];
+    env.addGlobal(functionName, (...args) => {
+            if (args.length === 1) {
+                const arg = args[0];
                 if (Array.isArray(arg)) {
                     // an array
                     return arg[Math.floor(Math.random() * arg.length)];
@@ -14,10 +14,10 @@ export default function (env) {
                     // a number
                     return Math.floor(Math.random() * arg);
                 }
-            } else if (arguments.length === 2) {
+            } else if (args.length === 2) {
                 // a range
-                const min = arguments[0];
-                const max = arguments[1];
+                const min = args[0];
+                const max = args[1];
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             } else {
                 // no arguments
