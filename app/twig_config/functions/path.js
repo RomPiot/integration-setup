@@ -1,5 +1,5 @@
 import fs from "fs";
-import {homePage, templateExtension, templatePath} from "../../functions.js";
+import {homePage, templateExtension, templatePath} from "../../constants.js";
 
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 

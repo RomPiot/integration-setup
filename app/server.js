@@ -4,16 +4,8 @@ import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import {autoloadTwigConfig} from "./twig_config/autoload_twig_config.js";
 import chalk from 'chalk';
-import {
-    getPageData,
-    getPageNames,
-    homePage,
-    publicPath,
-    serverPort,
-    serverUrl,
-    templateExtension,
-    templatePath
-} from "./functions.js";
+import {getPageData, getPageNames,} from "./services/page_service.js";
+import {homePage, publicPath, serverPort, serverUrl, templateExtension, templatePath} from "./constants.js";
 
 const liveReloadServer = livereload.createServer();
 
