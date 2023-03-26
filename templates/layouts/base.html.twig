@@ -26,7 +26,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                {% for route in app.routes %}
+                                {% for route in app.getNav() %}
                                     <a class="nav-link {% if route.url == app.request.uri %}active{% endif %}"
                                        aria-current="page"
                                        href="{{ path(route.name) }}">{{ route.name }}</a>

@@ -4,7 +4,7 @@ import {homePage, templateExtension, templatePath} from "../../constants.js";
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 
 export default function (env) {
-    env.addGlobal(functionName, (pageName) => {
+    env.addGlobal(functionName, (pageName, data) => {
         if (pageName.endsWith(templateExtension)) {
             pageName = pageName.replace(templateExtension, '');
         }
@@ -13,6 +13,14 @@ export default function (env) {
 
         if (pageName === homePage) {
             pageName = '/';
+        }
+
+        if (data && data.id) {
+            pageName = pageName + '/' + data.id;
+        }
+
+        if (data && data.slug) {
+            pageName = pageName + '/' + data.slug;
         }
 
         if (!fs.existsSync(pagePath)) {

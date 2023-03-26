@@ -8,9 +8,11 @@
     <p>{{ description }}</p>
 
     <div class="row">
+        {% set type = "project" %}
         {% for card in cards %}
             {% include 'partials/card.html.twig' %}
         {% endfor %}
     </div>
     {% endblock %}
 </main>
+

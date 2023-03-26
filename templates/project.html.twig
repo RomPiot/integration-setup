@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block body_id %}page-home{% endblock %}
+
+{% block content %}
+<main class="container">
+    <h1>{{ title }}</h1>
+    <div>
+        <img src="{{ image.url }}" alt="{{ image.alt }}" title="{{ image.title }}" class="img-fluid">
+    </div>
+    <p>{{ description }}</p>
+    <p>Date : {{ date }}</p>
+</main>

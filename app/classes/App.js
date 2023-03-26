@@ -4,6 +4,7 @@ export class App {
     constructor() {
         this.request = new Request();
         this.routes = [];
+        this.nav = [];
     }
 
     setRequest(request) {
@@ -21,5 +22,13 @@ export class App {
 
     getRoutes() {
         return this.routes;
+    }
+
+    setMainNav(nav) {
+        this.nav = nav;
+    }
+
+    getNav() {
+        return this.nav;
     }
 }
