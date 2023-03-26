@@ -9,10 +9,7 @@
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RomPiot/integration-setup"
-  },
+  "repository": "https://github.com/RomPiot/integration-setup",
   "keywords": [
     "express",
     "nunjucks",
@@ -27,6 +24,7 @@
     "dumper.js": "^1.3.1",
     "fs": "^0.0.1-security",
     "nunjucks": "^3.2.3",
+    "prettier": "^2.8.7",
     "slugify": "^1.6.5",
     "terser-webpack-plugin": "^5.3.7"
   },
@@ -34,6 +32,7 @@
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
+    "chalk": "^5.2.0",
     "connect-livereload": "^0.6.1",
     "css-loader": "^6.7.3",
     "eslint": "^8.36.0",
@@ -49,5 +48,6 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1"
   },
-  "type": "module"
+  "type": "module",
+  "license": "MIT"
 }
