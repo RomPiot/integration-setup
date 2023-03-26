@@ -18,7 +18,7 @@ named
 
 ## Requirements
 
-tip: Use nvm for more flexibility on node version
+Tip: use nvm for better flexibility of node version
 
 - NodeJS
 - NPM (or Yarn)
@@ -42,3 +42,6 @@ yarn start
 ```
 
 By default, without custom configuration, go to: `http://localhost:3001`
+
+
+
