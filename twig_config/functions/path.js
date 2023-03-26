@@ -1,17 +1,17 @@
 import fs from "fs";
+import {homePage, templateExtension, templatePath} from "../../functions.js";
 
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 
 export default function (env) {
     env.addGlobal(functionName, (pageName) => {
-        if (pageName.endsWith('.html.twig')) {
-            pageName = pageName.replace('.html.twig', '');
+        if (pageName.endsWith(templateExtension)) {
+            pageName = pageName.replace(templateExtension, '');
         }
 
-        const pageToSearch = ['home', 'homepage'];
-        const pagePath = "templates/" + pageName + ".html.twig";
+        const pagePath = templatePath + '/' + pageName + templateExtension;
 
-        if (pageToSearch.includes(pageName)) {
+        if (pageName === homePage) {
             pageName = '/';
         }
 
