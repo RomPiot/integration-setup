@@ -1,5 +1,5 @@
 import fs from "fs";
-import {homePage, templateExtension, templatePath} from "../../constants.js";
+import {elementSelector, homePage, templateExtension, templatePath} from "../../constants.js";
 
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 
@@ -15,12 +15,8 @@ export default function (env) {
             pageName = '/';
         }
 
-        if (data && data.id) {
-            pageName = pageName + '/' + data.id;
-        }
-
-        if (data && data.slug) {
-            pageName = pageName + '/' + data.slug;
+        if (data && data[elementSelector]) {
+            pageName = pageName + '/' + data[elementSelector];
         }
 
         if (!fs.existsSync(pagePath)) {

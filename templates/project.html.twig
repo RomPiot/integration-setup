@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block body_id %}page-home{% endblock %}
+{% block body_id %}page-project-{{ id }}{% endblock %}
 
 {% block content %}
 <main class="container">
@@ -11,3 +11,4 @@
     <p>{{ description }}</p>
     <p>Date : {{ date }}</p>
 </main>
+{% endblock %}

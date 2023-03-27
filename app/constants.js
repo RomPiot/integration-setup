@@ -18,4 +18,7 @@ export const homePage = process.env.HOME_PAGE || 'home';
 export const projectRoot = path.resolve(__dirname, '..') + '/';
 export const appRoot = path.resolve(__dirname) + '/';
 export const dataRoot = projectRoot + dataPath + '/';
+export const publicRoot = projectRoot + publicPath + '/';
+export const elementSelector = process.env.ELEMENT_SELECTOR || 'id';
+export const listSelector = process.env.LIST_SELECTOR || '_list';
 export const app = new App();

@@ -1,5 +1,5 @@
 {
     "title": "Homepage",
     "description": "Our projects",
-    "cards": "include_data('projects.json')"
+    "cards": "include_data('project.json')"
 }

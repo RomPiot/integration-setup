@@ -4,7 +4,7 @@ import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import {autoloadTwigConfig} from "./twig_config/autoload_twig_config.js";
 import chalk from 'chalk';
-import {getPageData, getPageNames,} from "./services/page_service.js";
+import {getAllPageNames, getPageData} from "./services/page_service.js";
 import {homePage, publicPath, serverPort, serverUrl, templateExtension, templatePath} from "./constants.js";
 
 const liveReloadServer = livereload.createServer();
@@ -26,7 +26,7 @@ const env = nunjucks.configure(templatePath, {
 
 autoloadTwigConfig(env);
 
-const pageNames = getPageNames();
+const pageNames = getAllPageNames();
 
 for (let pageName of pageNames) {
     if (pageName === homePage) {
@@ -40,6 +40,7 @@ for (let pageName of pageNames) {
 
     server.get('/' + pageName, function (req, res) {
         const pageData = getPageData(req, pageName);
+        pageName = pageName.split('/')[0];
         res.render(pageName + templateExtension, pageData);
     });
 }
@@ -50,7 +51,7 @@ server.set('port', serverPort);
 server.listen(server.get('port'), function () {
     console.log('Server started on ' + chalk.blueBright(serverUrl));
 
-    for (let pageName of pageNames) {
+    for (let pageName of getAllPageNames(false)) {
         if (pageName === homePage) {
             continue;
         }

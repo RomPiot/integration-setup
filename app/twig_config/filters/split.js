@@ -17,7 +17,6 @@ export default function (env) {
 
         let parts = str.split(delimiter);
 
-        console.log(parts);
         if (limit && parts.length > limit) {
             const last = parts.splice(limit - 1).join(delimiter);
             parts.push(last);
