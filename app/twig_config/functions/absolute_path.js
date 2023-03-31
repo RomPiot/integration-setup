@@ -1,5 +1,5 @@
-import {serverUrl} from "../../constants.js";
-import * as getPageName from "./path.js";
+import {serverUrl} from '../../constants.js';
+import * as getPageName from './path.js';
 
 const functionName = import.meta.url.split('/').pop().replace('.js', '');
 

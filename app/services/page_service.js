@@ -81,6 +81,7 @@ export function loadJsonData(pageName) {
         pageElement = parseInt(pageData[1]);
     }
 
+
     try {
         let jsonData = require(projectRoot + dataPath + '/' + pageName + '.json');
 

@@ -1,18 +1,18 @@
 import express from 'express';
 import nunjucks from 'nunjucks';
-import livereload from "livereload";
-import connectLiveReload from "connect-livereload";
-import {autoloadTwigConfig} from "./twig_config/autoload_twig_config.js";
+import livereload from 'livereload';
+import connectLiveReload from 'connect-livereload';
+import {autoloadTwigConfig} from './twig_config/autoload_twig_config.js';
 import chalk from 'chalk';
-import {getAllPageNames, getPageData} from "./services/page_service.js";
-import {homePage, publicPath, serverPort, serverUrl, templateExtension, templatePath} from "./constants.js";
+import {getAllPageNames, getPageData} from './services/page_service.js';
+import {homePage, publicPath, serverPort, serverUrl, templateExtension, templatePath} from './constants.js';
 
 const liveReloadServer = livereload.createServer();
 
-liveReloadServer.server.once("connection", () => {
+liveReloadServer.server.once('connection', () => {
     setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 10);
+        liveReloadServer.refresh('/');
+    }, 100);
 });
 
 const server = express();
@@ -40,8 +40,8 @@ for (let pageName of pageNames) {
 
     server.get('/' + pageName, function (req, res) {
         const pageData = getPageData(req, pageName);
-        pageName = pageName.split('/')[0];
-        res.render(pageName + templateExtension, pageData);
+        const templateName = pageName.split('/')[0];
+        res.render(templateName + templateExtension, pageData);
     });
 }
 

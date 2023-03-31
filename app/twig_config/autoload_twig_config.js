@@ -1,6 +1,6 @@
-import path from "path";
-import fs from "fs";
-import {appRoot} from "../constants.js";
+import path from 'path';
+import fs from 'fs';
+import {appRoot} from '../constants.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -22,7 +22,7 @@ export function autoloadTwigConfig(env) {
             files.forEach((file) => {
                 import(appRoot + 'twig_config/' + directory + '/' + file).then((module) => {
                     module.default(env);
-                })
+                });
             });
         });
     }
