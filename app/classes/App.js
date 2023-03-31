@@ -6,7 +6,9 @@ export class App {
         this.request = new Request();
         this.routes = [];
         this.nav = [];
-        this.site_parameters = loadJsonData('site_parameters');
+        for (let parameter in loadJsonData('site_parameters')) {
+            this[parameter] = loadJsonData('site_parameters')[parameter];
+        }
     }
 
     setRequest(request) {

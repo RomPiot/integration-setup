@@ -117,7 +117,7 @@ export function loadJsonData(pageName) {
         return jsonData;
     } catch (e) {
         console.log(e.message);
-        return null;
+        return {};
     }
 }
 

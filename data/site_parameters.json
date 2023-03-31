@@ -1,20 +1,16 @@
 {
-    "site": {
-        "name": "My Site",
-        "description": "My site description",
-        "email": "",
-        "phone": "",
-        "address": "",
-        "city": "",
-        "state": "",
-        "zip": "",
-        "country": "",
-        "logo": {
-            "url": "https://www.example.com/logo.png",
-            "alt": "My Site Logo",
-            "title": "My Site Logo",
-            "width": 200,
-            "height": 200
-        }
+    "name": "My Site",
+    "description": "My site description",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "country": "",
+    "logo": {
+        "url": "https://loremflickr.com/70/70/cat?lock=5",
+        "alt": "my site logo",
+        "title": "my site logo"
     }
 }
