@@ -43,5 +43,34 @@ yarn start
 
 By default, without custom configuration, go to: `http://localhost:3001`
 
+## Features
 
+### json inheritance
+You can include json data in other json, by specifying in the value of your key the "include_data" function, pointing to the associated file in data
+
+Example :  (in home.json)
+```json
+"cards": "include_data('project.json')"
+```
+
+For this to work, you need to add a root key named "include_data" in the file you want to include, and specify the data you want to include in your file.
+
+Example :  (in project.json)
+```json
+{
+    "include_data": [
+        {
+            "id": 82,
+            "title": "enim commodo consequat ad laboris",
+            "description": "veniam consequat cillum sit incididunt anim ex ullamco enim anim consequat nostrud velit labore id occaecat",
+            "image": {
+                "url": "https://loremflickr.com/500/500/landscape?lock=",
+                "alt": "exercitation duis",
+                "title": "do sunt velit et cillum eu ipsum incididunt exercitation cupidatat reprehenderit aliqua eiusmod officia ut non nisi irure ut irure"
+            },
+            "date": "2022-03-09"
+        }
+    ]
+}
+```
 

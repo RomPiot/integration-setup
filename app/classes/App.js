@@ -1,10 +1,12 @@
-import {Request} from "./Request.js";
+import {Request} from './Request.js';
+import {loadJsonData} from '../services/page_service.js';
 
 export class App {
     constructor() {
         this.request = new Request();
         this.routes = [];
         this.nav = [];
+        this.site_parameters = loadJsonData('site_parameters');
     }
 
     setRequest(request) {

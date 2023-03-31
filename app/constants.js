@@ -1,6 +1,6 @@
-import * as dotenv from "dotenv";
-import path from "path";
-import {App} from "./classes/App.js";
+import * as dotenv from 'dotenv';
+import path from 'path';
+import {App} from './classes/App.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -20,5 +20,6 @@ export const appRoot = path.resolve(__dirname) + '/';
 export const dataRoot = projectRoot + dataPath + '/';
 export const publicRoot = projectRoot + publicPath + '/';
 export const elementSelector = process.env.ELEMENT_SELECTOR || 'id';
-export const listSelector = process.env.LIST_SELECTOR || '_list';
+export const listSelector = process.env.LIST_SELECTOR || 'include_data';
+export const imageSelectors = process.env.IMAGE_SELECTORS || ['image', 'logo'];
 export const app = new App();

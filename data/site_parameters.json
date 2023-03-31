@@ -1,0 +1,20 @@
+{
+    "site": {
+        "name": "My Site",
+        "description": "My site description",
+        "email": "",
+        "phone": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "zip": "",
+        "country": "",
+        "logo": {
+            "url": "https://www.example.com/logo.png",
+            "alt": "My Site Logo",
+            "title": "My Site Logo",
+            "width": 200,
+            "height": 200
+        }
+    }
+}

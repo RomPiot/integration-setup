@@ -1,20 +1,20 @@
-import fs from "fs";
-import * as dotenv from "dotenv";
-import {createRequire} from "module";
-import {Route} from "../classes/Route.js";
+import fs from 'fs';
+import * as dotenv from 'dotenv';
+import {createRequire} from 'module';
+import {Route} from '../classes/Route.js';
 import {
     app,
     dataPath,
     dataRoot,
     elementSelector,
-    homePage,
+    homePage, imageSelectors,
     listSelector,
     projectRoot,
     serverUrl,
     templateExtension,
     templatePath
-} from "../constants.js";
-import {mainNavigation} from "./navigation_service.js";
+} from '../constants.js';
+import {mainNavigation} from './navigation_service.js';
 
 dotenv.config();
 
@@ -30,7 +30,7 @@ export const getAllPageNames = (full = true) => {
     });
 
     for (let pageName of pageNames) {
-        const pageData = loadJsonData({}, pageName);
+        const pageData = loadJsonData(pageName);
 
         if (pageData && pageData[listSelector]) {
             const list = pageData[listSelector];
@@ -52,10 +52,10 @@ export const getAllPageNames = (full = true) => {
     }
 
     return allPageNames;
-}
+};
 
 export const getPageData = (req, pageName) => {
-    const pageData = loadJsonData(req, pageName);
+    const pageData = loadJsonData(pageName);
     pageData.url = serverUrl + pageName;
     pageData.app = app;
     const originalUrl = req.originalUrl.replace('/', '');
@@ -69,12 +69,11 @@ export const getPageData = (req, pageName) => {
     }
 
     pageData.app.setRoutes(routes);
-    pageData.app.setMainNav(mainNavigation())
+    pageData.app.setMainNav(mainNavigation());
     return pageData;
-}
+};
 
-function loadJsonData(req, pageName) {
-    console.log({pageName})
+export function loadJsonData(pageName) {
     let pageElement = null;
     const pageData = pageName.split('/');
     if (pageData.length > 1) {
@@ -82,35 +81,65 @@ function loadJsonData(req, pageName) {
         pageElement = parseInt(pageData[1]);
     }
 
-    let jsonData = require(projectRoot + dataPath + '/' + pageName + '.json');
+    try {
+        let jsonData = require(projectRoot + dataPath + '/' + pageName + '.json');
 
-    if (pageElement) {
-        for (let item of jsonData[listSelector]) {
-            if (parseInt(item[elementSelector]) === pageElement) {
-                jsonData = item;
-                break;
+        if (pageElement) {
+            for (let item of jsonData[listSelector]) {
+                if (parseInt(item[elementSelector]) === pageElement) {
+                    jsonData = item;
+                    break;
+                }
             }
         }
+
+        const toSearch = 'include_data';
+        let jsonToLoad = [];
+
+        for (let property in jsonData) {
+            const propertyValue = jsonData[property];
+            if (typeof propertyValue === 'string' && propertyValue.includes(toSearch)) {
+                let jsonPath = propertyValue.replace(toSearch + '(', '').replace(')', '');
+                jsonPath = jsonPath.replace(/'/g, '');
+                jsonPath = dataRoot + jsonPath;
+
+                jsonToLoad[property] = jsonPath;
+            }
+        }
+
+        for (let property in jsonToLoad) {
+            const jsonPath = jsonToLoad[property];
+            jsonData[property] = require(jsonPath)[listSelector];
+        }
+
+        replaceImageValueWithId(jsonData);
+
+        return jsonData;
+    } catch (e) {
+        console.log(e.message);
+        return null;
     }
+}
 
-    const toSearch = "include_data";
-    let jsonToLoad = [];
 
-    for (let property in jsonData) {
-        const propertyValue = jsonData[property];
-        if (typeof propertyValue === 'string' && propertyValue.includes(toSearch)) {
-            let jsonPath = propertyValue.replace(toSearch + '(', '').replace(')', '');
-            jsonPath = jsonPath.replace(/'/g, '');
-            jsonPath = dataRoot + jsonPath;
+function replaceImageValueWithId(obj) {
+    for (let key in obj) {
+        // eslint-disable-next-line no-prototype-builtins
+        if (!obj.hasOwnProperty(key)) {
+            continue;
+        }
 
-            jsonToLoad[property] = jsonPath;
+        if (typeof obj[key] === 'object' && imageSelectors.includes(key)) {
+            if (!obj[key].url) {
+                continue;
+            }
+
+            if (obj[key].url.slice(-1) === '=') {
+                obj[key].url = obj[key].url + obj.id;
+            }
+        } else if (typeof obj[key] === 'object') {
+            replaceImageValueWithId(obj[key]);
         }
     }
-
-    for (let property in jsonToLoad) {
-        const jsonPath = jsonToLoad[property];
-        jsonData[property] = require(jsonPath)[listSelector];
-    }
-
-    return jsonData;
 }
+
